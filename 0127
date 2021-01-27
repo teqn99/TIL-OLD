@@ -1,0 +1,82 @@
+#Oracle SQL Developer
+
+[구문 형태]
+Select 기본 구문 - 연산자, 컬럼 별칭
+select [distinct] 컬럼명1, 컬럼명2 -> 조회할 컬럼이름들을 지정. 테이블의 모든 컬럼들을 조회하는 경우 *를 사용 
+                                -> 컬럼명 별칭 : 별칭은 조회결과로 보여질 컬럼의 이름. 별칭은 " "로 감쌀 수 있다. (공백이 들어갈 경우 반드시 " " 사용)
+                                -> select 절이 distinct로 시작, 중복된 조회 결과는 하나만 보여준다.
+from 테이블명                     -> 조회할 컬럼이 있는 테이블의 이름 지정
+
+
+
+[연산자] 
+ 연산은 그 컬럼의 모든 값들에 일률적으로 적용된다.
+ 같은 컬럼을 여러번 조회할 수 있다.
+
+ 산술연산: +, -, *, /
+*중요* 피연산자 중 null이 있으면 결과는 무조건 null. ex) null + 10 = null -> null: 값이 없다, 모르는 값 
+*중요* date 타입 값 + / - 정수: day(일)을 + / - ex) 오늘날짜 + 5 = 5일 후 날짜
+ 연결연산자: 문자열을 붙이는 연산자. || -> 모든 타입을 다 붙일 수 있다. 
+
+
+
+[Dummy / 더미 테이블]
+select 10 num1, 20 "num2"
+from   dual;    
+-> dual: 더미(dummy)테이블 - select의 from절을 만들기 위한 가짜 테이블
+
+
+
+[Date / 날짜]
+sysdate: 실행시점의 일시(날짜,시간)를 반환. 반환타입: date
+select sysdate, sysdate + 3 "3일 후 날짜", sysdate + 20 "20일 후 날짜",
+       sysdate - 5 "5일 전 날짜"
+from dual;
+-> date는 + / - 만 가능
+
+
+
+select salary, salary, salary -- 동일한 컬럼을 여러 번 조회할 수 있다.
+from emp;
+
+
+
+%: 0 ~ N개의 모든 문자
+_: 1개의 모든 문자
+
+name like '홍%' -> 이름이 홍씨인 모든 사람, ex) 홍가, 홍가나, 홍가나다, ...
+name like '홍_' -> 이름이 홍씨이고 외자인 사람
+
+-- ~~로 끝나는 것 : %~~로 표기
+-- ~~로 시작하는 것: ~~%로 표기
+-- ~~를 포함하는 것: %~~%로 표기
+-- _: 1글자 표시
+
+
+
+select emp_id,
+       emp_name
+from   emp
+where  emp_name like '%$%%' escape '$';
+--ex) emp_name like '%$%%' escape '$&' -> $%표시는 % 자체의 문자임을 암시하는 표현
+-- escape 뒤의 문자를 통해 구분자를 설정해준 것
+
+
+
+ WHERE 조건이 여러개인 경우
+ AND OR
+ 
+ 참 and 참 -> 참: 조회 결과 행
+ 거짓 or 거짓 -> 거짓: 조회 결과 행이 아님.
+ 
+ 연산 우선순위 : and > or
+ 
+ where 조건1 and 조건2 or 조건3
+ 1. 조건 1 and 조건2
+ 2. 1결과 or 조건3
+ 
+ or를 먼저 하려면 where 조건1 and (조건2 or 조건3)
+ 
+ 
+ 
+ 
