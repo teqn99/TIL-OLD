@@ -38,7 +38,7 @@
  - Date +- 정수 : 일자 계산.
  - months_between(d1, d2) -경과한 개월수(d1이 최근, d2가 과거)
  - add_months(d1, 정수) - 정수개월 지난 날짜. 마지막 날짜의 1개월 후는 달의 마지막 날이 된다. 
- - next_day(d1, '요일') - d1에서 첫번째 지정한 요일의 날짜. 요일은 한글(locale)로 지정한다.
+ - next_day(d1, '요일') - d1의 날짜 이후 중, 첫번째로 지정한 '요일'의 날짜. 요일은 한글(locale)로 지정한다. ex) d1 이후 첫번째 금요일의 날짜는?
  - last_day(d) - d 달의 마지막날.
  - extract(year|month|day from date) - date에서 year/month/day만 추출
  
