@@ -1,0 +1,65 @@
+# Oracle SQL Developer
+
+[extract 함수]
+extract(year|month|day from date) : date에서 year, month, day만 추출
+ex)
+select emp_id,
+       emp_name,
+       hire_date,
+       extract(year from hire_date),
+       extract(month from hire_date),
+       extract(day from hire_date)
+from   emp
+where  extract(year from hire_date) = 2004;
+
+
+
+[Order by / 정렬]
+order by를 이용한 정렬
+- select문에 가장 마지막에 오는 구절.
+- order by 정렬기준컬럼 정렬방식 [, 정렬기준컬럼 정렬방식,...]
+- 정렬기준컬럼
+	- 컬럼이름.
+	- select절에 선언된 순서.
+	- 별칭이 있을 경우 별칭.
+- 정렬방식
+	- asc : 오름차순 (기본-생략가능)
+	- desc : 내림차순
+  ex 1)
+  select  *
+  from    emp
+  order by emp_id desc; 
+  
+  ex 2) 2차 정렬
+  select  emp_id,
+        emp_name,
+        job,
+        salary
+  from    emp
+  order by job asc, salary desc;
+  (방법 2)
+  select  emp_id,
+        emp_name,
+        job,
+        salary
+  from    emp
+  order by 3 asc, 4 desc; -> 숫자 지정은 select 절을 기준으로 하므로 select절의 순서에 맞춰서 설정해줘야 한다. (table의 컬럼 순서 X)
+  (방법 3)
+  select  emp_id "직원ID",
+        emp_name "이름",
+        job "업무",
+        salary "급여"
+  from    emp
+  order by "업무" asc, "급여" desc; -> 별칭으로도 지정이 가능하다.
+  
+- 문자열: 숫자 < 대문자 < 소문자 < 한글 (unicode 순서)
+  ex) '1' < 'B' < 'b' / '가'
+- date : 과거 < 미래	
+
+NULL 값
+ASC : 마지막.  order by 컬럼명 asc nulls first
+DESC : 처음.   order by 컬럼명 desc nulls last
+-- nulls first, nulls last ==> 오라클 문법.
+
+
+
