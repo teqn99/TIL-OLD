@@ -1,0 +1,40 @@
+# Oracle SQL Developer
+
+[함수 - null 관련 함수]
+- NVL(expr, 기본값) - expr 값이 null이면 기본값을, 아니면 expr값을 반환
+- NVL2(expr, nn, null) - expr이 null이 아니면 nn, 널이면 세번째
+- nullif(ex1, ex2) 둘이 같으면 null, 다르면 ex1
+
+
+
+[DECODE 함수]
+- 동등비교
+- decode(컬럼, [비교값, 출력값, ...] , else출력) 
+  -> decode 함수: Oracle 함수
+  -> case 함수: 표준 함수 (DB 상관없이 SQL에서는 공통 지원)
+  ex)
+  if 10 then 'A'
+  else if 20 then 'B'
+  else 'C'
+  -> decode(컬럼, 10, 'A', 
+                 20, 'B', 
+                 'C')
+
+[case문 동등 비교]
+- case 컬럼 when 비교값 then 출력값
+          [when 비교값 then 출력값]
+          [else 출력값]
+           end
+  ex)
+  case 컬럼 when 10 then 'a'
+           when 20 then 'b'
+           else 'c' end    -> else절을 생략하면 null을 반환
+              
+[case문 조건문]
+- case when 조건 then 출력값
+      [when 조건 then 출력값]
+      [else 출력값]
+       end
+       
+       
+       
