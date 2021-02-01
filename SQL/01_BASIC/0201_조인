@@ -1,0 +1,12 @@
+# Oracle SQL Developer
+
+[함수의 순서]
+5. select  컬럼선택
+1. from    테이블
+2. where   행 조건
+3. group by 그룹 기준 칼럼
+4. having 그룹 선택 조건
+6. order by 정렬
+
+
+
