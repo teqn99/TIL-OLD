@@ -103,6 +103,15 @@
       01 -> 1
       10 -> 2
       11 -> 3
+      
+    ex) 총계/소계 행의 경우 :  총계는 '총계', 중간집계는 '계' 로 출력
+        부서별(dept_name) 별 최대 salary와 최소 salary를 조회
+	
+	select  decode(grouping_id(dept_name), 0, dept_name, '총계') dept_name,
+		max(salary),
+		min(salary)
+	from    emp
+	group by rollup(dept_name);
     
     
     
