@@ -44,4 +44,7 @@
         	e.hire_date,
         	d.dept_name
 	from    emp e inner join dept d on e.dept_id = d.dept_id;
+	-> PK와 FK의 연결은 '='로 join : equi join
+	-> PK와 FK가 없는 연결은 '='로 join 하지 않음 : non-equi join
+	
         
