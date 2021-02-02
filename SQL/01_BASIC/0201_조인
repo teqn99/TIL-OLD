@@ -34,7 +34,8 @@
         - 표준 SQL 문법
         - 오라클은 9i 부터 지원.
     - 오라클 조인 문법
-        - 오라클 전용 문법이며 다른 DBMS는 지원하지 않는다.
-        
-        
+        - 오라클 전용 문법이며 다른 DBMS는 지원하지 않는다.   
+- inner join : ANSI 조인 구문
+	FROM  테이블a INNER JOIN 테이블b ON 조인조건 
+	-> inner는 생략 할 수 있다.(생략되면 inner join하는 것이다.) 
         
