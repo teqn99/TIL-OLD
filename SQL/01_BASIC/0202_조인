@@ -1,0 +1,15 @@
+# Oracle SQL Developer
+
+[오라클 조인] 
+- Join할 테이블들을 from절에 나열한다.
+- Join 연산은 where절에 기술한다. 
+  ex)
+  select  e.emp_id,
+          e.emp_name,
+          e.hire_date,
+          d.dept_name
+  from    emp e, dept d
+  where   e.dept_id = d.dept_id;
+
+
+
