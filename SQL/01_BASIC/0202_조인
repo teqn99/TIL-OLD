@@ -23,3 +23,36 @@
   from  emp e1 join emp e2 on e1.mgr_id = e2.emp_id; --e1: 부하직원, e2: 상사직원
 
 
+
+[아우터 조인 (Outer Join)]
+- 조인테이블에 소스테이블의 행은 모두 붙이고 타겟테이블의 행은 조인연산을 만족하는 것만 붙인다.
+- 불충분 조인 (조인 연산시 한쪽의 행이 불충분 해도 붙이도록) 
+- 소스(완전해야하는테이블)가 왼쪽이면 left join, 오른쪽이면 right join 양쪽이면 full outer join
+
+-ANSI 문법
+from 테이블a [LEFT | RIGHT | FULL] OUTER JOIN 테이블b ON 조인조건
+- OUTER는 생략 가능.
+  ex)
+  from emp e right outer join dept d on e.dept_id = d.dept_id;
+  -> dept에 있는 데이터 모두 나온다.
+  from emp e left outer join dept d on e.dept_id = d.dept_id; -> 일반적으로 left조인이 편함(for korean)
+  -> emp에 있는 데이터 모두 나온다.
+  from emp e full outer join dept d on e.dept_id = d.dept_id;
+  -> emp, dept에 있는 데이터 모두 나온다.
+
+-오라클 JOIN 문법
+- FROM 절에 조인할 테이블을 나열
+- WHERE 절에 조인 조건을 작성
+    - 타겟 테이블에 (+) 를 붙인다.
+    - FULL OUTER JOIN은 지원하지 않는다.
+- OUTER는 생략 할 수 있다.	
+  ex)
+  select  e.emp_id,
+          e.emp_name,
+          e.job_id,
+          j.job_title
+  from    emp e, job j
+  where   e.job_id(+) = j.job_id;
+
+
+
