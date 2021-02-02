@@ -36,12 +36,12 @@
     - 오라클 조인 문법
         - 오라클 전용 문법이며 다른 DBMS는 지원하지 않는다.   
 - inner join : ANSI 조인 구문
-	FROM  테이블a INNER JOIN 테이블b ON 조인조건 
+	FROM  테이블a 별칭 INNER JOIN 테이블b 별칭 ON 조인조건 
 	-> inner는 생략 할 수 있다.(생략되면 inner join하는 것이다.) 
 	ex)
 	select  emp.emp_id,
         	emp.emp_name,
         	emp.hire_date,
         	dept.dept_name
-	from    emp inner join dept on emp.dept_id = dept.dept_id;
+	from    emp e inner join dept d on emp.dept_id = dept.dept_id;
         
