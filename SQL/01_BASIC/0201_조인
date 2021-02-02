@@ -46,5 +46,7 @@
 	from    emp e inner join dept d on e.dept_id = d.dept_id;
 	-> PK와 FK의 연결은 '='로 join : equi join
 	-> PK와 FK가 없는 연결은 '='로 join 하지 않음 : non-equi join
+	   보통 between 조건 low 범위 and 조건 high 범위
+	   ex) from    emp e join salary_grade s on e.salary between s.low_sal and s.high_sal
 	
         
