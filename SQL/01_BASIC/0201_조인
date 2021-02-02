@@ -43,5 +43,5 @@
         	e.emp_name,
         	e.hire_date,
         	d.dept_name
-	from    emp e inner join dept d on emp.dept_id = dept.dept_id;
+	from    emp e inner join dept d on e.dept_id = d.dept_id;
         
