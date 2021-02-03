@@ -52,7 +52,7 @@
 	   보통 between 조건 low 범위 and 조건 high 범위
 	   ex) from    emp e join salary_grade s on e.salary between s.low_sal and s.high_sal
 	
-- 카티션 곱: join 연산을 잘못해서 두 테이블의 행들이 cross로 join된 것 (오라클 JOIN에서만 발생, ANSI JOIN에서는 에러발생)
+- 카티션 곱: join 연산을 잘못해서 두 테이블의 행들이 cross로 join된 것 (오라클 JOIN에서 주로 발생, ANSI JOIN에서는 cross join 키워드 존재)
    6개 Table -> join 연산 최소 5개
    -> N개 Table -> join 연산 최소 N-1개
 	ex) select  *	
