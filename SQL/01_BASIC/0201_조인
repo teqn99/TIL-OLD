@@ -21,6 +21,7 @@
 - 각 테이블을 어떻게 합칠지를 표현하는 것을 조인 연산이라고 한다.
     - 조인 연산에 따른 조인종류
         - Equi join , non-equi join
+	
 - 조인의 종류
     - Inner Join (교집합 개념)
         - 양쪽 테이블에서 조인 조건을 만족하는 행들만 합친다. 
@@ -29,12 +30,14 @@
         - 종류 : Left Outer Join,  Right Outer Join, Full Outer Join
     - Cross Join (안나오는 게 좋은 것)
         - 두 테이블의 곱집합을 반환한다. 
+	
 - 조인 문법
     - ANSI 조인 문법
         - 표준 SQL 문법
         - 오라클은 9i 부터 지원.
     - 오라클 조인 문법
         - 오라클 전용 문법이며 다른 DBMS는 지원하지 않는다.   
+	
 - inner join : ANSI 조인 구문
 	FROM  테이블a 별칭 INNER JOIN 테이블b 별칭 ON 조인조건 
 	-> inner는 생략 할 수 있다.(생략되면 inner join하는 것이다.) 
@@ -49,4 +52,7 @@
 	   보통 between 조건 low 범위 and 조건 high 범위
 	   ex) from    emp e join salary_grade s on e.salary between s.low_sal and s.high_sal
 	
-        
+- 카티션 곱: join 연산을 잘못해서 두 테이블의 행들이 cross로 join된 것
+	ex) select  *	
+	    from    emp e, dept d
+	    order by 1;
