@@ -45,7 +45,6 @@ from 테이블a [LEFT | RIGHT | FULL] OUTER JOIN 테이블b ON 조인조건
 - WHERE 절에 조인 조건을 작성
     - 타겟 테이블에 (+) 를 붙인다.
     - FULL OUTER JOIN은 지원하지 않는다.
-- OUTER는 생략 할 수 있다.	
   ex)
   select  e.emp_id,
           e.emp_name,
