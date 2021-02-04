@@ -30,6 +30,7 @@
       from    dept d
       where   exists (select * from emp e where e.dept_id = d.dept_id)
       order by 1;
+      --exists절에 들어오는 select절에는 아무거나 와도 괜찮다.
 
   2) 직원이 한명도 없는 부서의 부서ID(dept.dept_id)와 이름(dept.dept_name), 위치(dept.loc)를 조회
       select  d.dept_id,
