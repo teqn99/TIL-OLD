@@ -74,7 +74,6 @@ DML - 데이터(값)을 다루는 SQL문
       set     salary = 5000
       where   emp_id = 200;
       
-   sd
    
    
 [DELETE : 테이블의 행을 삭제]
